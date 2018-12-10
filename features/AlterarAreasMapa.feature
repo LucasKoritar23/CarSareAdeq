@@ -8,7 +8,7 @@ Funcionalidade: Alterar Áreas no Mapa
   Quero executar um script
   Para Alterar Áreas no Mapa do CAR
 
-  #@tira_print
+  @tira_print
 
   Esquema do Cenário: Alterar áreas no Mapa e importar novas áreas para o SARE
   	Dado que o '<numcar>' esteja como Inscrito e adequacao como Prada
