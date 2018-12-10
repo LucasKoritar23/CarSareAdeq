@@ -148,14 +148,21 @@ class PreencheCar
 		flegaArea = find('.ModuloAlternado', text: textoUsoConsolidado)
 		flegaArea.find('input[type=checkbox]').click
 
-	
-		flegaArea = find('.ModuloItem', text: textoRLCompensacao)
-		flegaArea.find('input[type=checkbox]').click
-		
-		flegaArea = find('.ModuloAlternado', text: textoServidaoAmb)
-		flegaArea.find('input[type=checkbox]').click
-		
+		if(artigo == "Exc_RL")
+			puts("Não Marca " + textoRLCompensacao)
+		else
+			flegaArea = find('.ModuloItem', text: textoRLCompensacao)
+			flegaArea.find('input[type=checkbox]').click
 		end
+
+		if(artigo == "Exc_RL")
+			puts("Não Marca " + textoServidaoAmb)
+		else
+			flegaArea = find('.ModuloAlternado', text: textoServidaoAmb)
+			flegaArea.find('input[type=checkbox]').click
+		end
+
+	end
 
 		def PreencheCar.AlteraProcessoAptidao(usuario,numCar)
 			textoAreaEmUC = "Área Inserida em UC"
@@ -243,7 +250,6 @@ class PreencheCar
 	def PreencheCar.VinculaCAR(numCarDeficitario)
 
 		textoReservaLegal = "Reserva Legal"
-		#textoRLCompensacao = "Reserva Legal de Compensação"
 		textoRLCompensacao = "Reserva Legal de Compensação"
 		textoServidaoAmb = "Servidão Ambiental"
 
@@ -254,7 +260,7 @@ class PreencheCar
 		page.driver.browser.switch_to.frame("ctl00_conteudo_TabContainer1_TabPanel1_TabNavegacao_TBArea_carArea_ifrmMapa")
 		find("[title*='sobre o elemento selecionado']", visible: true, match: :first).click
 		map = find(:id, "ucCARAreaMapa_ucCARGMapSketch1_CarGMap").native
-		page.driver.browser.action.move_to(map,800,250).click.perform
+		page.driver.browser.action.move_to(map,600,368).click.perform
 		sleep(5)
 		page.driver.browser.switch_to.frame(0)
 		sleep(3)

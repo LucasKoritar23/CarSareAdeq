@@ -1,6 +1,7 @@
 Dado("que esteja cadastrando o car Excedente de Rl") do
     AcessaLink.url
     RealizaLogin.acesso(usuario = "55613853720")
+    binding.pry
     PreencheCar.AcessaCar
     PreencheCar.AbaProriedade(nomeCAR = "GW Sitio " + Faker::Name.first_name + " PreProd ",  muni = "NOVAIS")
     PreencheCar.PessoasAbaDominio

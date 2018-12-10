@@ -20,7 +20,7 @@ E("um CAR Excedente") do
     AcessaLink.url
     RealizaLogin.acesso(usuario = "55613853720")
     PreencheCar.AcessaCar
-    PreencheCar.AbaProriedade(nomeCAR = "GW Sitio Vinculo " + Faker::Name.first_name + " Excedente RL ",  muni = "ALTAIR")
+    PreencheCar.AbaProriedade(nomeCAR = "GW Sitio Vinculo " + Faker::Name.first_name + " Excedente RL ",  muni = "CATANDUVA")
     PreencheCar.PessoasAbaDominio
     PreencheCar.AbaDominio_InsereMatricula
     PreencheCar.AbaAnexos
@@ -29,7 +29,7 @@ E("um CAR Excedente") do
     Importa.Poligono(tipoImportacao = "RLCompensacao")
     Importa.Poligono(tipoImportacao = "ServidaoAmb")
     PreencheCar.MarcaNaoExiste(artigo = "Exc_RL")
-    PreencheCar.AbaFinalizar(possuiAreas = "RL")
+    PreencheCar.AbaFinalizar(possuiAreas = "")
     @numCarExcedente = find(:id, "ctl00_conteudo_lblCAR").text
 	puts("CAR Excedente de RL criado com sucesso no link " + link = (current_url) + " e seu número é: " +  @numCarExcedente)
 end

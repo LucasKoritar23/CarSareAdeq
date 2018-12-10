@@ -73,7 +73,7 @@ class Importa
             flegaArea = find('.ModuloItem', text: textoRLCompensacao)
             flegaArea.first(:css, 'a[href]').click
             page.driver.browser.switch_to.frame(1)
-            attach_file('ucCARAreaMapa_fuShape', File.absolute_path('anexos/ReservaLegalCompensacao_415692.zip'))
+            attach_file('ucCARAreaMapa_fuShape', File.absolute_path('anexos/ReservaLegalCompensacao_VincRL.zip'))
             sleep(5)
             find("[value=Importar]").click
 		    Navegador.verificaPopUp
@@ -87,7 +87,7 @@ class Importa
             flegaArea = find('.ModuloAlternado', text: textoServidaoAmb)
             flegaArea.first(:css, 'a[href]').click
             page.driver.browser.switch_to.frame(1)
-            attach_file('ucCARAreaMapa_fuShape', File.absolute_path('anexos/ServidaoAmbiental_415692.zip'))
+            attach_file('ucCARAreaMapa_fuShape', File.absolute_path('anexos/ServidaoAmbiental_VincRL.zip'))
             sleep(5)
             find("[value=Importar]").click
             sleep(5)
