@@ -9,17 +9,19 @@ Dado("que esteja criando o CAR") do
 end
 
 Quando("Desenhar os polígonos para o artigo") do
-    Desenha.InserePoligono(tipo = "PropriedadeMenor4", coordenadas = [565,354,625,343,623,380,564,359])#prop >4 MF
-    Desenha.InserePoligono(tipo = 'ReservaLegal',  coordenadas = [557,261,575,231,605,263,561,264])
-    Desenha.InserePoligono(tipo = 'ReservaLegal',    coordenadas = [575,210,577,184,604,201,580,212])
-    Desenha.InserePoligono(tipo = 'Vegetacao',     coordenadas = [557,261,575,231,605,263,561,264])
-    Desenha.InserePoligono(tipo = 'OutrasApps',    coordenadas = [643,273,665,248,682,283,646,277])
-    Desenha.InserePoligono(tipo = 'Vegetacao',     coordenadas = [643,273,665,248,682,283,646,277])
+    Desenha.InserePoligono(tipo = "Propriedade", coordenadas = [565,354,625,343,623,380,564,359])#prop >4 MF
+    Importa.Poligono(tipoImportacao = "OutrasApps")
+    Importa.Poligono(tipoImportacao = "RL_4771")
+    Importa.Poligono(tipoImportacao = "VN_4771")
     PreencheCar.MarcaNaoExiste(artigo = "4771")
 end
  
 Então("o CAR estará disponível com o artigo") do
     PreencheCar.AbaFinalizar(possuiAreas = "")
     @numCar = find(:id, "ctl00_conteudo_lblCAR").text
-	puts("CAR Art4771 criado com sucesso no link " + link = (current_url) + " e seu número é: " +  @numCar)
+    puts("CAR Art4771 criado com sucesso no link " + link = (current_url) + " e seu número é: " +  @numCar)
+    first("[id*='AdequacaoAmbiental']", visible: true).click
+    PreencheAdequacao.CompromissosAnteriores
+    PreencheAdequacao.PassivosAmbientais(criaProjeto = "4771")
+    PreencheAdequacao.Finalizar(tipoFinalizacao = "4771")
 end

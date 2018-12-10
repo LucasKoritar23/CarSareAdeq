@@ -19,7 +19,7 @@ E("preencher todos os campos da adequação ambiental") do
     first("[id*='AdequacaoAmbiental']", visible: true).click
     PreencheAdequacao.CompromissosAnteriores
     PreencheAdequacao.PassivosAmbientais(criaProjeto = "")
-    PreencheAdequacao.Finalizar
+    PreencheAdequacao.Finalizar(tipoFinalizacao = "")
 end
   
 Então("o sistema irá gerar CAR com projeto Adequacao") do

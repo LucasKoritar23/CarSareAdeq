@@ -19,7 +19,7 @@ E("finalizar a adequação ambiental") do
     first("[id*='AdequacaoAmbiental']", visible: true).click
     PreencheAdequacao.CompromissosAnteriores
     PreencheAdequacao.PassivosAmbientais(criaProjeto = "PRADA")
-    PreencheAdequacao.Finalizar
+    PreencheAdequacao.Finalizar(tipoFinalizacao = "")
 end
   
 Então("o sistema irá gerar CAR com projeto PRADA") do

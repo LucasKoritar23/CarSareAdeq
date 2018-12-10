@@ -2,9 +2,10 @@ class Importa
     def Importa.Poligono(tipoImportacao)
 
         textoReservaLegal = "Reserva Legal"
-        #textoRLCompensacao = "Reserva Legal de Compensação"
         textoRLCompensacao = "Reserva Legal de Compensação"
         textoServidaoAmb = "Servidão Ambiental"
+        textoVegetacao = "Vegetação Nativa"
+        textoOutrasApps = "Outras APPs"
 
         find(:link, "Mapa").click
 
@@ -21,6 +22,38 @@ class Importa
             sleep(5)
             find(:link, "Sair do Mapa").click
 		    Navegador.verificaPopUp
+        end
+
+        if tipoImportacao == "OutrasApps"
+            flegaArea = find('.ModuloItem', text: textoOutrasApps)
+            flegaArea.first(:css, 'a[href]').click
+            page.driver.browser.switch_to.frame(1)
+            attach_file('ucCARAreaMapa_fuShape', File.absolute_path('anexos/OutrasApps_416481.zip'))
+            sleep(5)
+            find("[value=Importar]").click
+		    Navegador.verificaPopUp
+            sleep(5)
+            find(:link, "Sair do Mapa").click
+		    Navegador.verificaPopUp
+         end
+
+         if (tipoImportacao == "RL_4771" || tipoImportacao == "VN_4771")
+            if(tipoImportacao == "RL_4771")
+                flegaArea = find('.ModuloAlternado', text: textoReservaLegal)
+                flegaArea.first(:css, 'a[href]').click
+            end
+            if(tipoImportacao == "VN_4771")
+                flegaArea = find('.ModuloItem', text: textoVegetacao)
+                flegaArea.first(:css, 'a[href]').click
+            end
+            page.driver.browser.switch_to.frame(1)
+            attach_file('ucCARAreaMapa_fuShape', File.absolute_path('anexos/OutrasApps_416481.zip'))
+            sleep(5)
+            find("[value=Importar]").click
+            Navegador.verificaPopUp
+            sleep(5)
+            find(:link, "Sair do Mapa").click
+            Navegador.verificaPopUp
         end
 
         if tipoImportacao == "ReservaLegal"

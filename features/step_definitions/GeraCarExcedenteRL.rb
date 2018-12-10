@@ -27,5 +27,5 @@ Dado("que esteja cadastrando o car Excedente de Rl") do
     first("[id*='AdequacaoAmbiental']", visible: true).click
     PreencheAdequacao.CompromissosAnteriores
     PreencheAdequacao.PassivosAmbientais(criaProjeto = "PRADA")
-    PreencheAdequacao.Finalizar
+    PreencheAdequacao.Finalizar(tipoFinalizacao = "")
   end

@@ -31,8 +31,12 @@ class PreencheAdequacao
         Navegador.verificaPopUp
             if (criaProjeto == "PRADA")
                 choose("Sim", visible: true)
-            else
+            end
+            if(criaProjeto == "")
                 choose("Não", visible: true)
+            end
+            if(criaProjeto == "4771")
+                choose("Não, pois meu imóvel já está adequado de acordo com a Lei Federal 4771/1965", visible: true)
             end
         desenhaProp2008 = find(".ModuloAlternado", text: "Propriedade em 2008")
         desenhaProp2008.find(:css, "a[href]").click
@@ -42,6 +46,8 @@ class PreencheAdequacao
         sleep(5)
         find(:link, "Sair do Mapa").click
         find(:link, "Calcular os passivos").click
+        Navegador.verificaPopUp
+        Navegador.verificaPopUp
         Navegador.verificaPopUp
         PreencheAdequacao.ObtemAreasRecompor
     end
@@ -60,9 +66,13 @@ class PreencheAdequacao
         PreencheCar.RecebeDeficit(areaRestante = @areaRestante)
 	end
 
-    def PreencheAdequacao.Finalizar
+    def PreencheAdequacao.Finalizar(tipoFinalizacao)
         Navegador.verificaPopUp
         find("[id*='FinalizarAdequacao']").click
+            if(tipoFinalizacao == "4771")
+                find("[id*='chkCompromissoPRA']").click
+                find("[id*='chkDeclarePRA']").click
+            end
         find("[id*='CARAdequacaoFinaliza_cmdFinaliza']").click
         Navegador.verificaPopUp
         Navegador.verificaPopUp
