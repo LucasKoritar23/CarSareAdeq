@@ -2,7 +2,7 @@ Dado("que possua um CAR com áreas a recompor") do
     AcessaLink.url
     RealizaLogin.acesso(usuario = "55613853720")
     PreencheCar.AcessaCar
-    PreencheCar.AbaProriedade(nomeCAR = "GW Sitio " + Faker::Name.first_name + " Prada ",  muni = "ALTAIR")
+    PreencheCar.AbaProriedade(nomeCAR = "GW Sitio " + Faker::Name.first_name + " Prada ",  muni = "CATANDUVA")
     PreencheCar.PessoasAbaDominio
     PreencheCar.AbaDominio_InsereMatricula
     PreencheCar.AbaAnexos

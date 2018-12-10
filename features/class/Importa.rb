@@ -15,7 +15,7 @@ class Importa
             find("[title='Aumentar o zoom']").click
             find("[title='Aumentar o zoom']").click
             find("[title='Aumentar o zoom']").click
-            attach_file('ucCARAreaMapa_fuShape', File.absolute_path('anexos/Propriedade_416486.zip'))
+            attach_file('ucCARAreaMapa_fuShape', File.absolute_path('anexos/Propriedade_GeraPrada.zip'))
             sleep(5)
             find("[value=Importar]").click
 		    Navegador.verificaPopUp
@@ -60,7 +60,7 @@ class Importa
             flegaArea = find('.ModuloAlternado', text: textoReservaLegal)
             flegaArea.first(:css, 'a[href]').click
             page.driver.browser.switch_to.frame(1)
-            attach_file('ucCARAreaMapa_fuShape', File.absolute_path('anexos/ReservaLegal_416486.zip'))
+            attach_file('ucCARAreaMapa_fuShape', File.absolute_path('anexos/ReservaLegal_GeraPrada.zip'))
             sleep(5)
             find("[value=Importar]").click
 		    Navegador.verificaPopUp
