@@ -98,10 +98,14 @@ class PreencheCar
 		textoReservaLegal = "Reserva Legal"
 		textoDeclividade = "Declividade entre 25° e 45°"
 		textoUsoConsolidado = "Uso consolidado"
-		#textoRLCompensacao = "Reserva Legal de Compensação"
 		textoRLCompensacao = "Reserva Legal de Compensação"
 		textoServidaoAmb = "Servidão Ambiental"
-        textoLagoLagoa = "Lago e Lagoa Natural"
+		textoLagoLagoa = "Lago e Lagoa Natural"
+
+			link = (current_url)
+			if (link == "http://pre.sigam.ambiente.sp.gov.br/Sigam/CAR/CARAdm.aspx?idPagina=13076")
+				textoRLCompensacao = "Reserva legal de compensação"
+			end
         
 		flegaArea = find('.ModuloAlternado', text: textoServidaoAdm)
 		flegaArea.find('input[type=checkbox]').click
@@ -150,7 +154,7 @@ class PreencheCar
 
 		if(artigo == "Exc_RL")
 			puts("Não Marca " + textoRLCompensacao)
-		else
+		else		
 			flegaArea = find('.ModuloItem', text: textoRLCompensacao)
 			flegaArea.find('input[type=checkbox]').click
 		end
@@ -161,7 +165,6 @@ class PreencheCar
 			flegaArea = find('.ModuloAlternado', text: textoServidaoAmb)
 			flegaArea.find('input[type=checkbox]').click
 		end
-
 	end
 
 		def PreencheCar.AlteraProcessoAptidao(usuario,numCar)
@@ -252,6 +255,11 @@ class PreencheCar
 		textoReservaLegal = "Reserva Legal"
 		textoRLCompensacao = "Reserva Legal de Compensação"
 		textoServidaoAmb = "Servidão Ambiental"
+
+		link = (current_url)
+			if (link == "http://pre.sigam.ambiente.sp.gov.br/Sigam/CAR/CARAdm.aspx?idPagina=13076")
+				textoRLCompensacao = "Reserva legal de compensação"
+			end
 
 		find(:link, "Cadastro Ambiental Rural", visible: true).click
 		find(:link, "Mapa", visible: true).click

@@ -11,11 +11,16 @@ class Desenha
 		textoReservaLegal = "Reserva Legal"
 		textoDeclividade = "Declividade entre 25° e 45°"
 		textoUsoConsolidado = "Uso consolidado"
-        # --> Test / Hom - textoRLCompensacao = "Reserva Legal de Compensação"
         textoRLCompensacao = "Reserva Legal de Compensação"
 		textoServidaoAmb = "Servidão Ambiental"
         textoLagoLagoa = "Lago e Lagoa Natural"
-		textoAreaEmUC = "Área Inserida em UC"
+        textoAreaEmUC = "Área Inserida em UC"
+        
+        link = (current_url)
+
+			if (link == "http://pre.sigam.ambiente.sp.gov.br/Sigam/CAR/CARAdm.aspx?idPagina=13076")
+				textoRLCompensacao = "Reserva legal de compensação"
+			end
 
 		find(:link, "Mapa").click
 
