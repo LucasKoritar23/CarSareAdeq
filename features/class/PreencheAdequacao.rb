@@ -64,12 +64,23 @@ class PreencheAdequacao
 		sleep(2)
         @areaRestante = find("[id*='totalDeficit']").text
         PreencheCar.RecebeDeficit(areaRestante = @areaRestante)
-	end
+    end
+    
+    def PreencheAdequacao.Solicita68
+        first("[id*='AdequacaoAmbiental']", visible: true).click
+		sleep(2)
+        find(:link, "Reserva Legal").click
+        first("[id*='TBReservaLegalArt68']", visible: true).click
+        find("[id*='chkRequererDispensa']").click
+        find("[id*='ARReservaLegalArt68_cmdAtualiza']").click
+        Navegador.verificaPopUp
+        Navegador.verificaPopUp
+    end
 
     def PreencheAdequacao.Finalizar(tipoFinalizacao)
         Navegador.verificaPopUp
         find("[id*='FinalizarAdequacao']").click
-            if(tipoFinalizacao == "4771")
+            if(tipoFinalizacao == "4771" || tipoFinalizacao == "68")
                 find("[id*='chkCompromissoPRA']").click
                 find("[id*='chkDeclarePRA']").click
             end
