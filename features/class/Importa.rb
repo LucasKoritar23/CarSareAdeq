@@ -9,7 +9,7 @@ class Importa
 
         link = (current_url)
 
-        if (link == "http://pre.sigam.ambiente.sp.gov.br/Sigam/CAR/CARAdm.aspx?idPagina=13076")
+        if (link == "http://pre.sigam.ambiente.sp.gov.br/Sigam/CAR/CARAdm.aspx?idPagina=13076" || link == "http://exec-dev01.sma.local/sigam-pre-prod/CAR/CARAdm.aspx?idPagina=13076")
             textoRLCompensacao = "Reserva legal de compensação"
         end
 
