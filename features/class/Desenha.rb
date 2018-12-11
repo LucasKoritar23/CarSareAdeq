@@ -252,6 +252,21 @@ class Desenha
             sleep(3)
         end
 
+        if tipo == "ReservaLegal_Proposta"
+            sleep(3)
+            page.driver.browser.switch_to.frame(0)
+            sleep(3)
+            choose('ctl01_rblLegal_2') # Não, dependerá aprovação...
+            sleep(3)
+            find(:link, "Salvar Atributos").click
+            sleep(3)
+            Navegador.verificaPopUp
+            page.driver.browser.switch_to.frame(1)
+            sleep(3)
+            find(:link, "Sair do Mapa").click
+            sleep(3)
+        end
+        
         if tipo == "UsoConsolidado"
             sleep(3)
             page.driver.browser.switch_to.frame(0)
