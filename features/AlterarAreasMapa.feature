@@ -20,5 +20,5 @@ Funcionalidade: Alterar Áreas no Mapa
 
     
     Exemplos:
-    |     numcar   |		
-    |35009070330291|
+    |     numcar   |
+    |35332540355215|

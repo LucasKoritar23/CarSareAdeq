@@ -1,6 +1,7 @@
 class ExecutaRobo
     def ExecutaRobo.SuspendeTermo
-        linkRobo = "http://exec-dev01.sma.local/SMA-EST-CAR_test/WebServices/SareTermos.asmx"
+        #linkRobo = "http://exec-dev01.sma.local/SMA-EST-CAR_test/WebServices/SareTermos.asmx"
+        linkRobo = "http://pre.sigam.ambiente.sp.gov.br/sigam/WebServices/SareTermos.asmx"
         visit(linkRobo)
         find(:link, "Termo_Suspenso").click
         click_button("Invoke")
@@ -8,7 +9,8 @@ class ExecutaRobo
         VerificaAbas.fechaAbas
     end
     def ExecutaRobo.SuspendeRetificacao
-        linkRobo = "http://exec-dev01.sma.local/SMA-EST-CAR_test/WebServices/SareTermos.asmx"
+       #linkRobo = "http://exec-dev01.sma.local/SMA-EST-CAR_test/WebServices/SareTermos.asmx"
+        linkRobo = "http://pre.sigam.ambiente.sp.gov.br/sigam/WebServices/SareTermos.asmx"
         visit(linkRobo)
         find(:link, "Retificacao_Suspensa").click
         click_button("Invoke")
