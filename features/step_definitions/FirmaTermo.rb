@@ -1,6 +1,7 @@
 Dado("que possua projeto no Sare") do
     AcessaLink.url
-    RealizaLogin.acesso(usuario = "03416907833")
+    binding.pry
+    RealizaLogin.acesso(usuario = "deborafl")
     PreencheSare.AcessaSare
     PreencheSare.CadastroInicial(nomeSare = "Projeto GW " +  Faker::Name.first_name)
     PreencheSare.Pessoa(nomPessoa = Faker::Name.name , funcaoPessoa = "Compromissário", tipoPessoa = "Jurídica")
@@ -12,7 +13,7 @@ Dado("que possua projeto no Sare") do
 end
   
 Quando("Gestor Gerar o Termo") do
-    RealizaLogin.acesso(usuario = "karinaac")
+    RealizaLogin.acesso(usuario = "edgaro")
     PreencheSare.RetornaSare
     PreencheSare.AlteraSituacao(usuario = "karinaac")
     PreencheSare.GeraTermo(usuario = "karinaac" ,tipoTermo = "TCRE")
@@ -24,7 +25,7 @@ E("anexar os documentos") do
     SareTermos.AbaArquivos(numTermoConvertido,tipoAnexo = "TermoOrgaoEmissor")
     SareTermos.SituacaoTermo(sitAlterada = "DispAssinatura")
     RealizaLogin.logoff
-    RealizaLogin.acesso(usuario = "03416907833")
+    RealizaLogin.acesso(usuario = "deborafl")
     PreencheSare.AcessaMeusProjetos
     RealizaBusca.SareUsuarioExt(@numeroSare)
     SareTermos.AbaArquivos(numTermoConvertido,tipoAnexo = "DisponivelAssinatura")

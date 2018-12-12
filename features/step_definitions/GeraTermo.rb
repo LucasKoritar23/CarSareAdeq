@@ -1,6 +1,6 @@
 Dado("que esteja tela de cadastro do Sare") do
     AcessaLink.url
-    RealizaLogin.acesso(usuario = "03416907833")
+    RealizaLogin.acesso(usuario = "deborafl")
     PreencheSare.AcessaSare
     PreencheSare.CadastroInicial(nomeSare = "Projeto GW " +  Faker::Name.first_name)
 end
@@ -14,10 +14,10 @@ Quando("preencher todos os campos do projeto") do
     #PreencheSare.NaoExiste
     #PreencheSare.DesenhaRestauracao
     RealizaLogin.logoff
-    RealizaLogin.acesso(usuario = "karinaac")
+    RealizaLogin.acesso(usuario = "edgaro")
     PreencheSare.RetornaSare
-    PreencheSare.AlteraSituacao(usuario = "karinaac")
-    PreencheSare.GeraTermo(usuario = "karinaac" ,tipoTermo = "TCRE")
+    PreencheSare.AlteraSituacao(usuario = "edgaro")
+    PreencheSare.GeraTermo(usuario = "edgaro" ,tipoTermo = "TCRE")
 end
   
 Então("o sistema criará o Projeto SARE") do

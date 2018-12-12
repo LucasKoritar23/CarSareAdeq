@@ -1,6 +1,6 @@
 Dado("que possua termo na situacao disponível para asssinatura") do
     AcessaLink.url
-    RealizaLogin.acesso(usuario = "03416907833")
+    RealizaLogin.acesso(usuario = "deborafl")
     PreencheSare.AcessaSare
     PreencheSare.CadastroInicial(nomeSare = "Projeto GW " +  Faker::Name.first_name)
     PreencheSare.Pessoa(nomPessoa = Faker::Name.name , funcaoPessoa = "Compromissário", tipoPessoa = "Jurídica")
@@ -9,10 +9,10 @@ Dado("que possua termo na situacao disponível para asssinatura") do
     @numeroSare = find(:id, "ctl00_conteudo_lblNumeroSARE").text
     puts("Projeto: " + @numeroSare + " Gerado no link: " + link = (current_url))
     RealizaLogin.logoff
-    RealizaLogin.acesso(usuario = "karinaac")
+    RealizaLogin.acesso(usuario = "edgaro")
     PreencheSare.RetornaSare
-    PreencheSare.AlteraSituacao(usuario = "karinaac")
-    PreencheSare.GeraTermo(usuario = "karinaac" ,tipoTermo = "TCRE")
+    PreencheSare.AlteraSituacao(usuario = "edgaro")
+    PreencheSare.GeraTermo(usuario = "edgaro" ,tipoTermo = "TCRE")
     termoGrid = find("#ctl00_conteudo_TabNavegacao_TBTermo_sareTermo_TabNavegacaoTermo_TBSubTermos_gvPesquisa > tbody > tr.ModuloItem > td:nth-child(6)").text
     numTermoConvertido = termoGrid.sub(/TCRE nº /, '')
     SareTermos.AbaArquivos(numTermoConvertido,tipoAnexo = "TermoOrgaoEmissor")
@@ -29,7 +29,7 @@ Então("o sistema deverá alterar o termo para suspenso") do
     RealizaLogin.logoff
     ExecutaRobo.SuspendeTermo
     AcessaLink.url
-    RealizaLogin.acesso(usuario = "03416907833")
+    RealizaLogin.acesso(usuario = "deborafl")
     PreencheSare.AcessaMeusProjetos
     RealizaBusca.SareUsuarioExt(@numeroSare)
     SareTermos.SituacaoTermo(sitAlterada = "suspenso")
