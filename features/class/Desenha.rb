@@ -69,7 +69,7 @@ class Desenha
 				flegaArea.first(:css, 'a[href]').click
 			end
 	
-			if tipo == "ReservaLegal"
+			if tipo == "ReservaLegal" || tipo == "ReservaLegal_Proposta"
 				flegaArea = find('.ModuloAlternado', text: textoReservaLegal)
 				flegaArea.first(:css, 'a[href]').click
 			end

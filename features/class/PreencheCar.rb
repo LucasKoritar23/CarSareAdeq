@@ -201,8 +201,10 @@ class PreencheCar
 		end
 
 	def PreencheCar.SolicitaAlteracao(alteracao)
-		find("[title=Alterar]").click
-		find("[id*=cmdAltera]").click
+		find("[title=Alterar]", match: :first).click
+		find("[id*=cmdAltera]", match: :first).click
+		Navegador.verificaPopUp
+		Navegador.verificaPopUp
 		Navegador.verificaPopUp
 			if (alteracao == "UC")
 				first("option[value='617']", visible: true).click
@@ -211,6 +213,8 @@ class PreencheCar
 			end
 		find("textarea[id*='desMotivo']").set("Teste Automatiazado")
 		find("a[id*='cmdSolicita']").click
+		Navegador.verificaPopUp
+		Navegador.verificaPopUp
 		Navegador.verificaPopUp
 		sleep(3)
 		Navegador.verificaPopUp
