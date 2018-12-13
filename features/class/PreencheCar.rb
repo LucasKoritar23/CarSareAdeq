@@ -102,10 +102,10 @@ class PreencheCar
 		textoServidaoAmb = "Servidão Ambiental"
 		textoLagoLagoa = "Lago e Lagoa Natural"
 
-			link = (current_url)
-			if (link == "http://pre.sigam.ambiente.sp.gov.br/Sigam/CAR/CARAdm.aspx?idPagina=13076")
+		link = (current_url)
+		if (link == "http://pre.sigam.ambiente.sp.gov.br/Sigam/CAR/CARAdm.aspx?idPagina=13076" || link == "http://exec-dev01.sma.local/sigam-pre-prod/CAR/CARAdm.aspx?idPagina=13076")
 				textoRLCompensacao = "Reserva legal de compensação"
-			end
+		end
         
 		flegaArea = find('.ModuloAlternado', text: textoServidaoAdm)
 		flegaArea.find('input[type=checkbox]').click

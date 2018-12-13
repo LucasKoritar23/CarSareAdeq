@@ -2,4 +2,6 @@ default: --no-source --color --format pretty
 
 sare: -t @GeraTermo,@FirmaTermo,@FirmaTermoSuspenso,@GeraRetificacao,@SuspenteTermo,@SuspendeRetificacao
 
-car_aa: -t @AlteraAreasMapa,@AnaliseParecer,@Artigo4771,@GeraAdequacao,@GeraCarDeficitRL,@GeraCarDeficitUC,@GeraCarExcedenteRL,@GeraCarExcedenteUC,@GeraCarMapaCompleto,@GeraCarPassivos,@GeraPrada,@VinculaCarUC,@VinculaCarRL
+
+pos_subida: -t @AlterarAreasMapa
+car_aa: -t @AnaliseParecer,@Artigo4771,@GeraAdequacao,@GeraCarDeficitRL,@GeraCarDeficitUC,@GeraCarExcedenteRL,@GeraCarExcedenteUC,@GeraCarMapaCompleto,@GeraCarPassivos,@GeraPrada,@VinculaCarUC,@VinculaCarRL

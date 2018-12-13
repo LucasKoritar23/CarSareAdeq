@@ -17,10 +17,9 @@ class Desenha
         textoAreaEmUC = "Área Inserida em UC"
         
         link = (current_url)
-
-			if (link == "http://pre.sigam.ambiente.sp.gov.br/Sigam/CAR/CARAdm.aspx?idPagina=13076" || link == "http://exec-dev01.sma.local/sigam-pre-prod/CAR/CARAdm.aspx?idPagina=13076")
+		if (link == "http://pre.sigam.ambiente.sp.gov.br/Sigam/CAR/CARAdm.aspx?idPagina=13076" || link == "http://exec-dev01.sma.local/sigam-pre-prod/CAR/CARAdm.aspx?idPagina=13076")
 				textoRLCompensacao = "Reserva legal de compensação"
-			end
+		end
 
 		find(:link, "Mapa").click
 
@@ -97,7 +96,9 @@ class Desenha
 			if tipo == "AreaEmUC" || tipo == "AreaExcedenteUC"
 				flegaArea = find('.ModuloItem', text: textoAreaEmUC)
 				flegaArea.first(:css, 'a[href]').click
-			end
+            end
+            
+            sleep(3)
 			Desenha.DesenhaPoligono(tipo,coordenadas)
 			Desenha.SalvaPoligono(tipo)
     end
@@ -149,13 +150,15 @@ class Desenha
 		if tipo == "AreaExcedenteUC"
 			page.driver.browser.action.move_to(map,coordenadas[8],coordenadas[9]).click.perform
 		end
-	    Navegador.verificaPopUp
+        Navegador.verificaPopUp
+        Navegador.verificaPopUp
     end
     
     def Desenha.SalvaPoligono(tipo)
         if (tipo == "Propriedade" || tipo == "PropriedadeMenor4" || tipo == "ServidaoAdm" || tipo == "RiosMedia" || tipo == "LagoLagoa" || tipo == "Vegetacao" || tipo == "Declividade")
             find("[title='Clique para salvar o estado do mapa']").click
             sleep(3)
+            Navegador.verificaPopUp
             Navegador.verificaPopUp
             sleep(3)
             find(:link, "Sair do Mapa").click
