@@ -38,7 +38,14 @@ class PreencheAdequacao
             if(criaProjeto == "4771")
                 choose("Não, pois meu imóvel já está adequado de acordo com a Lei Federal 4771/1965", visible: true)
             end
-        desenhaProp2008 = find(".ModuloAlternado", text: "Propriedade em 2008")
+
+             
+        link = (current_url)
+		if (link == "http://homologacao-sigam.eastus2.cloudapp.azure.com/SMA-EST-CAR/CAR/CARAdm.aspx?idPagina=13076")
+            desenhaProp2008 = find(".ModuloAlternado", text: "Área do imóvel em 22 de julho de 2008")
+        else 
+            desenhaProp2008 = find(".ModuloAlternado", text: "Propriedade em 2008")
+        end
         desenhaProp2008.find(:css, "a[href]").click
         page.driver.browser.switch_to.frame(1)
         check("ucCARAreaMapaAdequacao$chkCopiaPropiedade")
@@ -74,7 +81,29 @@ class PreencheAdequacao
         find("[id*='chkRequererDispensa']").click
         find("[id*='ARReservaLegalArt68_cmdAtualiza']").click
         Navegador.verificaPopUp
-        Navegador.verificaPopUp
+        Navegador.verificaPopUp 
+    end
+
+    def PreencheAdequacao.Analisa68(resultadoAnalise)
+        find("[id*='cmdEdita']", match: :first).click
+        first("[id*='AdequacaoAmbiental']", visible: true).click
+        sleep(2)
+        find(:link, "Reserva Legal").click
+        find("[id*='TBAnaliseArt68']", match: :first).click
+        find("[id*='txtNroProcesso']").set("2018123")
+        find("[id*='txtAnoProcesso']").set("2018")
+        find("[id*='txtObservacao']", match: :first, visible: true).set("Teste Automatizado analisando...")
+            if(resultadoAnalise == "Deferido")
+                find("[name*='ddlResultadoAnalise']").find(:option, resultadoAnalise).select_option
+            else
+                find("[name*='ddlResultadoAnalise']").find(:option, resultadoAnalise).select_option
+            end
+        find("[id*='CARAnaliseArt68_cmdAtualiza']").click
+        sleep(2)
+        sitCAR = find("[id*='lblSituacao']", match: :first).text
+        puts("A situação do CAR foi alterada para: " + sitCAR)
+        sitAA = find("[id*='lblSituacaoAdequacao']", match: :first).text
+        puts("A situação da adequação foi alterada para: " + sitAA)
     end
 
     def PreencheAdequacao.Finalizar(tipoFinalizacao)

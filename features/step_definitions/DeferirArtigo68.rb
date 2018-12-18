@@ -1,4 +1,4 @@
-Dado("que possua o CAR ser areas a recompor") do
+Dado("o car tenha solicitado ao {int}") do |int|
     AcessaLink.url
     RealizaLogin.acesso(usuario = "55613853720")
     PreencheCar.AcessaCar
@@ -9,22 +9,22 @@ Dado("que possua o CAR ser areas a recompor") do
     Desenha.InserePoligono(tipo = "Propriedade", coordenadas = [565,354,625,343,623,380,564,359])#prop >4 MF
     PreencheCar.MarcaNaoExiste(artigo = "")
     PreencheCar.AbaFinalizar(possuiAreas = "")
-  end
-  
-  Quando("preencher os campos da adequação") do
     PreencheAdequacao.CompromissosAnteriores
     PreencheAdequacao.PassivosAmbientais(criaProjeto = "PRADA")
-  end
-  
-  E("solicitar a dipensa atraves do {int}") do |int|
     PreencheAdequacao.Solicita68
-  end
-  
-  E("finalizar a adequação") do
     PreencheAdequacao.Finalizar(tipoFinalizacao = "68")
-  end
-  
-  Então("o car terá solicitado ao {int}") do |int|
     @numCar = find(:id, "ctl00_conteudo_lblCAR").text
-	  puts("CAR solicitado 68 criado com sucesso no link " + link = (current_url) + " e seu número é: " +  @numCar)
-  end
+    puts("CAR solicitado 68 criado com sucesso no link " + link = (current_url) + " e seu número é: " +  @numCar)
+end
+  
+Quando("o usuario SAA deferir o {int}") do |int|
+    RealizaLogin.logoff
+    RealizaLogin.acesso(usuario = "karinaac")
+    PreencheCar.AcessaCarConsultaGerencial
+    RealizaBusca.CAR(@numCar)
+    PreencheAdequacao.Analisa68(resultadoAnalise = "Deferido")
+end
+  
+Então("a situação da AA irá para Imovel ambientalmente adequado") do
+    
+end
