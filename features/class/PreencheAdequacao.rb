@@ -93,17 +93,9 @@ class PreencheAdequacao
         find("[id*='txtNroProcesso']").set("2018123")
         find("[id*='txtAnoProcesso']").set("2018")
         find("[id*='txtObservacao']", match: :first, visible: true).set("Teste Automatizado analisando...")
-            if(resultadoAnalise == "Deferido")
-                find("[name*='ddlResultadoAnalise']").find(:option, resultadoAnalise).select_option
-            else
-                find("[name*='ddlResultadoAnalise']").find(:option, resultadoAnalise).select_option
-            end
+        find("[name*='ddlResultadoAnalise']").find(:option, resultadoAnalise).select_option
         find("[id*='CARAnaliseArt68_cmdAtualiza']").click
         sleep(2)
-        sitCAR = find("[id*='lblSituacao']", match: :first).text
-        puts("A situação do CAR foi alterada para: " + sitCAR)
-        sitAA = find("[id*='lblSituacaoAdequacao']", match: :first).text
-        puts("A situação da adequação foi alterada para: " + sitAA)
     end
 
     def PreencheAdequacao.Finalizar(tipoFinalizacao)

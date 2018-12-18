@@ -1,4 +1,4 @@
-Dado("o car tenha solicitado ao {int}") do |int|
+Dado("o car tenha solicitado o artigo {int}") do |int|
     AcessaLink.url
     RealizaLogin.acesso(usuario = "55613853720")
     PreencheCar.AcessaCar
@@ -15,19 +15,19 @@ Dado("o car tenha solicitado ao {int}") do |int|
     PreencheAdequacao.Finalizar(tipoFinalizacao = "68")
     @numCar = find(:id, "ctl00_conteudo_lblCAR").text
     puts("CAR solicitado 68 criado com sucesso no link " + link = (current_url) + " e seu número é: " +  @numCar)
-end
+  end
   
-Quando("o usuario SAA deferir o {int}") do |int|
+  Quando("o usuario SAA indeferir o {int}") do |int|
     RealizaLogin.logoff
     RealizaLogin.acesso(usuario = "karinaac")
     PreencheCar.AcessaCarConsultaGerencial
     RealizaBusca.CAR(@numCar)
-    PreencheAdequacao.Analisa68(resultadoAnalise = "Deferido")
-end
+    PreencheAdequacao.Analisa68(resultadoAnalise = "Indeferido")
+  end
   
-Então("a situação da AA irá para Imovel ambientalmente adequado") do
+  Então("a situação da AA irá para Aguarda Proposta de Reserva Legal") do
     sitCAR = find("[id*='lblSituacao']", match: :first).text
     puts("A situação do CAR foi alterada para: " + sitCAR)
     sitAA = find("[id*='lblSituacaoAdequacao']", match: :first).text
     puts("A situação da adequação foi alterada para: " + sitAA)
-end
+  end

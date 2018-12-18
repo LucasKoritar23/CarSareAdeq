@@ -8,7 +8,7 @@ Funcionalidade: Deferir Artigo 68
   Quero executar um script
   Para Deferir a solicitação do Artigo 68
 
-  #@tira_print
+  @tira_print
 
   Cenario: Deferir 68
   	Dado o car tenha solicitado ao 68
