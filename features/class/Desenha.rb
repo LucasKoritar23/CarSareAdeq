@@ -149,7 +149,8 @@ class Desenha
 		sleep(2)
 		if tipo == "AreaExcedenteUC"
 			page.driver.browser.action.move_to(map,coordenadas[8],coordenadas[9]).click.perform
-		end
+        end
+        sleep(3)
         Navegador.verificaPopUp
         Navegador.verificaPopUp
     end

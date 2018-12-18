@@ -5,7 +5,6 @@ require 'selenium-webdriver'
 require 'capybara/dsl'
 require 'pry'
 require 'pg'
-require 'sqlite3'
 require 'mysql2'
 require 'faker'
 
