@@ -177,6 +177,7 @@ class PreencheCar
 			flegaArea = first('.ModuloItem', text: textoAreaEmUC)
 			flegaArea.first(:css, 'a[href]').click
 			page.driver.browser.switch_to.frame("ctl00_conteudo_TabContainer1_TabPanel1_TabNavegacao_TBArea_carArea_ifrmMapa")
+			sleep(2)
 			find("[title*='sobre o elemento selecionado']", visible: true, match: :first).click
 			map = find(:id, "ucCARAreaMapa_ucCARGMapSketch1_CarGMap").native
 			page.driver.browser.action.move_to(map,664, 236).click.perform
@@ -234,7 +235,8 @@ class PreencheCar
 	def PreencheCar.VinculaUC(numCarDef)
 		sleep(3) 
 		page.driver.browser.switch_to.frame("ctl00_conteudo_TabContainer1_TabPanel1_TabNavegacao_TBArea_carArea_ifrmMapa")
-        find("[title*='sobre o elemento selecionado']", visible: true, match: :first).click
+		sleep(2)
+		find("[title*='sobre o elemento selecionado']", visible: true, match: :first).click
         map = find(:id, "ucCARAreaMapa_ucCARGMapSketch1_CarGMap").native
 		page.driver.browser.action.move_to(map,664, 236).click.perform
 		sleep(3)
@@ -270,6 +272,7 @@ class PreencheCar
 		flegaArea = find('.ModuloItem', text: textoRLCompensacao)
 		flegaArea.first(:css, 'a[href]').click
 		page.driver.browser.switch_to.frame("ctl00_conteudo_TabContainer1_TabPanel1_TabNavegacao_TBArea_carArea_ifrmMapa")
+		sleep(2)
 		find("[title*='sobre o elemento selecionado']", visible: true, match: :first).click
 		map = find(:id, "ucCARAreaMapa_ucCARGMapSketch1_CarGMap").native
 		page.driver.browser.action.move_to(map,600,368).click.perform
