@@ -18,6 +18,7 @@ class PreencheSare
         find(:link, "Cadastrar projetos com dispensa de CAR").click
         #aba Cadastro
         find("[name*='ddlMotivo']").find(:option, "Exigência da CETESB").select_option
+        Navegador.verificaPopUp
         find("[name*='nomProjeto']").set(nomeSare)
         #Endereço
         find("[name*='txtEndereco']").set("Rua Automatizada")
@@ -115,9 +116,9 @@ class PreencheSare
             if ((usuario == "leilacm" || usuario == "karinaac" || usuario == "rodrigolp" || usuario == "gtiadm") && tipoTermo == "TCRE")
                 find("[name*='dplTermos']").find(:option, "TCRE – Termo de Compromisso de Restauração Ecológica").select_option
                 find(:link, "Adicionar Termo").click
-                find("[name*='txtDescVariavel']").set("Unidade Automatizada")
-                find("[name*='ckbUsaObrigacaoVariavel']").click
-                find("[name*='txtOrdemObrigacaoVariavel']").set("1.15")
+                find("[name*='txtDescVariavel']", match: :first).set("Unidade Automatizada")
+                find("[name*='ckbUsaObrigacaoVariavel']", match: :first).click
+                find("[name*='txtOrdemObrigacaoVariavel']", match: :first).set("1.15")
                 find("[title='Grava as alterações']").click
                 find(:link, "Gerar Termo").click
                 Navegador.verificaPopUp
