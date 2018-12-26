@@ -2,7 +2,7 @@ Dado("o car tenha solicitado ao {int}") do |int|
     AcessaLink.url
     RealizaLogin.acesso(usuario = "55613853720")
     PreencheCar.AcessaCar
-    PreencheCar.AbaProriedade(nomeCAR = "GW Sitio " + Faker::Name.first_name + " Artigo 68 ",  muni = "ILHABELA")
+    PreencheCar.AbaProriedade(nomeCAR = "GW Sitio " + Faker::Name.first_name + " Defer Art 68 ",  muni = "ILHABELA")
     PreencheCar.PessoasAbaDominio
     PreencheCar.AbaDominio_InsereMatricula
     PreencheCar.AbaAnexos
