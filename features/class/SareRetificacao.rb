@@ -50,9 +50,6 @@ class SareRetificacao
         retificacaoConvertida = retificacaoGrid.sub(/0/, '')
         retificacaoConvertida = retificacaoGrid.sub(/2018/, '')
         numRetificacaoBD = retificacaoConvertida.to_i
-        ConectaBanco.acesso
-        ConectaBanco.alteraPrazoAssinaturaRetif(numRetificacaoBD)
-
     end
 
     def SareRetificacao.SituacaoRetificacao(sitAlterada)
