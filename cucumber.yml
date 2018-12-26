@@ -1,4 +1,5 @@
-default: --no-source --color --format pretty
+default: --no-source --color --format pretty --p html
+html: --format html --out=log/relatorio.html
 
 sare: -t @GeraTermo,@FirmaTermo,@FirmaTermoSuspenso,@GeraRetificacao,@SuspenteTermo,@SuspendeRetificacao
 
