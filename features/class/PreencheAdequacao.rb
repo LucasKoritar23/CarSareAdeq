@@ -62,6 +62,7 @@ class PreencheAdequacao
     def PreencheAdequacao.ObtemAreasRecompor
         areasRecompor = find("#ctl00_conteudo_TabContainer1_TabAdequacaoAmbiental_TBAdequacaoCadastro_TBAdequacaoMapa_carAreaAdequacao_gvConsulta > tbody > tr:nth-child(13) > td:nth-child(3)").text
         puts("O car possui " + areasRecompor + " para recompor")
+        Navegador.verificaPopUp
     end
 
     def PreencheAdequacao.ObtemDeficit
@@ -70,6 +71,7 @@ class PreencheAdequacao
 		find(:link, "Reserva Legal").click
 		sleep(2)
         @areaRestante = find("[id*='totalDeficit']").text
+        Navegador.verificaPopUp
         PreencheCar.RecebeDeficit(areaRestante = @areaRestante)
     end
     
