@@ -56,6 +56,8 @@ class PreencheAdequacao
         Navegador.verificaPopUp
         Navegador.verificaPopUp
         Navegador.verificaPopUp
+        Navegador.verificaPopUp
+        Navegador.verificaPopUp
         PreencheAdequacao.ObtemAreasRecompor
     end
 
