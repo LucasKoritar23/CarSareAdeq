@@ -11,16 +11,14 @@ include Capybara::DSL
 # Capybara.register_driver :selenium do |globalweb|
 # 	Capybara::Selenium::Driver.new(globalweb, :browser => :chrome)
 # end
-Capybara.register_driver :selenium do |app|
-    args = %w[window-size=1440,900 headless disable-gpu disable-popup-blocking]
-    
-    caps = Selenium::WebDriver::Remote::Capabilities.chrome(
-        'chromeOptions' => {
-            'args' => args
-        }
+Capybara.register_driver :chrome do |app|
+    capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
+      'chromeOptions' => {
+        'args' => ['headless', 'no-sandbox', 'disable-gpu', 'window-size=1360,768']
+      }
     )
-    Capybara::Selenium::Driver.new(app, browser: :chrome, desired_capabilities: caps)
-end
+    Capybara::Selenium::Driver.new(app, browser: :chrome, desired_capabilities: capabilities)
+  end
 
 Capybara.configure do |config|
     Capybara.current_driver = :selenium
