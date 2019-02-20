@@ -4,7 +4,6 @@ require 'selenium/webdriver'
 require 'selenium-webdriver'
 require 'capybara/dsl'
 require 'pry'
-require 'pg'
 require 'faker'
 
 include Capybara::DSL
