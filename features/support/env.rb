@@ -8,16 +8,14 @@ require 'faker'
 
 include Capybara::DSL
 
-# Capybara.register_driver :selenium do |globalweb|
-# 	Capybara::Selenium::Driver.new(globalweb, :browser => :chrome)
-# end
-Capybara.register_driver :chrome do |app|
+Capybara.register_driver :headless_chrome do |app|
     capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-      'chromeOptions' => {
-        'args' => ['headless', 'no-sandbox', 'disable-gpu', 'window-size=1360,768']
-      }
+      chromeOptions: { args: %w(headless disable-gpu) }
     )
-    Capybara::Selenium::Driver.new(app, browser: :chrome, desired_capabilities: capabilities)
+
+    Capybara::Selenium::Driver.new app,
+      browser: :chrome,
+      desired_capabilities: capabilities
   end
 
 Capybara.configure do |config|
