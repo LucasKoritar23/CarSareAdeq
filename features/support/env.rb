@@ -8,8 +8,19 @@ require 'faker'
 
 include Capybara::DSL
 
-Capybara.register_driver :selenium do |globalweb|
-	Capybara::Selenium::Driver.new(globalweb, :browser => :chrome)
+# Capybara.register_driver :selenium do |globalweb|
+# 	Capybara::Selenium::Driver.new(globalweb, :browser => :chrome)
+# end
+
+Capybara.register_driver :selenium do |app|
+    args = %w[window-size=1440,900 headless disable-gpu disable-popup-blocking]
+    
+    caps = Selenium::WebDriver::Remote::Capabilities.chrome(
+        'chromeOptions' => {
+            'args' => args
+        }
+    )
+    Capybara::Selenium::Driver.new(app, browser: :chrome, desired_capabilities: caps)
 end
 
 Capybara.configure do |config|
