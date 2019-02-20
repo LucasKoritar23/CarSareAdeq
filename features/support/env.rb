@@ -6,7 +6,7 @@ require 'capybara/dsl'
 require 'pry'
 require 'faker'
 
-include Capybara::DSLs
+include Capybara::DSL
 
 Capybara.register_driver :selenium do |globalweb|
 	Capybara::Selenium::Driver.new(globalweb, :browser => :chrome)
